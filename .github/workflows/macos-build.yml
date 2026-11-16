@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-14
+    runs-on: macos-15
     env:
       EPICS_BASE: ${{ github.workspace }}/deps/epics-base
       PVXS_DIR: ${{ github.workspace }}/deps/pvxs
@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: deps
-          key: epics-macos-base7-pvxs-${{ runner.os }}-v2
+          key: epics-macos15-base7-pvxs-${{ runner.os }}-${{ runner.arch }}-v3
 
       - name: Build EPICS base + PVXS
         if: steps.epics-cache.outputs.cache-hit != 'true'
